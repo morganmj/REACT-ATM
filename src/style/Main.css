@@ -1,0 +1,16 @@
+.title {
+    text-align: center;
+    font-size: 30px;
+    margin: 10px 40px;
+}
+
+.layout {
+    width: 500px;
+    margin: auto;
+}
+
+.all {
+    background: #ECECEC;
+    height: 100%;
+    padding-top: 100px;
+}

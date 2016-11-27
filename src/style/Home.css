@@ -1,0 +1,15 @@
+.item {
+    width: 100px;
+    height: 40px;
+    margin: 10px 20px;
+    font-size: 18px;
+}
+
+.all {
+    margin: 20px;
+    text-align: center;
+}
+
+.main {
+    margin: 40px auto 40px;
+}
