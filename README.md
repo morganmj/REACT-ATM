@@ -2,7 +2,7 @@
 A atm base on react,redux,react router,nodejs and mongodb
 
 ##启动程序
-npm install；
+npm install;
 npm start;
 
 ##mongodb配置
