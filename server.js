@@ -15,74 +15,9 @@ app.all('*', function(req, res, next) {
     res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
-/*------------------连接数据库------------------*/
+/*------------------连接数据库配置数据库------------------*/
 app.listen(3001);
-
-function handlerRender(req, res) {
-    const initialState = Immutable.fromJS({
-        sumMoney: '10',
-        userData: {
-            cardNum: '',
-            password: '',
-            isLogin: false,
-            userId: '',
-            userName: ''
-        },
-        uiState: {
-            userShow: 'block',
-            pwdShow: 'hidden',
-            withOn: 'block',
-            withOff: '0', //'0'表示没有信息显示，'1'表示取款成功，'-1'表示余额不足
-            depositOn: 'block',
-            depositOff: '0',
-            transferOn: 'block',
-            transferOff: '0',
-            modifyOn: 'block',
-            modifyOff: '0'
-        }
-    });
-    const store = configureStore(initialState);
-    const html = renderToString(
-
-    );
-    const finalState = store.getState();
-
-
-}
-
-
-function renderFullPage(html, preloadedState) {
-    return `
-    <!doctype html>
-    <html>
-      <head>
-        <title>Redux Universal Example</title>
-      </head>
-      <body>
-        <div id="app">${html}</div>
-        <script>
-          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\x3c')}
-        </script>
-        <script src="/dist/index_bundle.js"></script>
-      </body>
-    </html>
-    `
-}
-
-
-
-
-
-
-
-
-
-
-
 var url = 'mongodb://localhost/db';
-//app.listen(3001, '10.104.209.139', function() {
-//    console.log("success")
-//});
 mongoose.Promise = global.Promise;
 mongoose.connect(url);
 
