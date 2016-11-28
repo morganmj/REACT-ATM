@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var express = require('express');
 var bodyParser = require('body-parser');
+var config = require('./config.js');
 //import Immutable from 'immutable';
 var app = new express();
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -16,12 +17,14 @@ app.all('*', function(req, res, next) {
     next();
 });
 /*------------------连接数据库配置数据库------------------*/
-app.listen(3001);
-var url = 'mongodb://localhost/db';
+app.listen(config.port, function() {
+    console.log('成功启动');
+});
+var url = config.url;
 mongoose.Promise = global.Promise;
 mongoose.connect(url);
 
-/*------------------card模式你设计------------------*/
+/*------------------card模式设计------------------*/
 var Schema = mongoose.Schema;
 var cardSchema = new Schema({
     cardNum: {
